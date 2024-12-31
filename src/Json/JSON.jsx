@@ -11,6 +11,7 @@ let data =  [
     id: 2,
     name: "PC",
     price: 1200,
+    details:"This is normal world classic pc.",
     category: "Accessories",
     stock: 50,
     img:"../images/pc.jpg"

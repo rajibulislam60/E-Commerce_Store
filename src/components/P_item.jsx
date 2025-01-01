@@ -9,13 +9,13 @@ export const P_item = () => {
     setSelectedItem(item);
   };
   return (
-    <div className="w-100% h-full">
+    <div className="w-100% h-full relative">
       <div className="mt-8 flex flex-wrap gap-4">
         {data.map((item) => (
           <div
             key={item.id}
             className="w-[280px] h-[350px] border border-black rounded-md"
-            onClick={()=>handleItemClick(item)}
+            onClick={() => handleItemClick(item)}
           >
             <img
               className="w-full h-[70%] object-cover"
@@ -38,8 +38,12 @@ export const P_item = () => {
       </div>
       <div>
         {selectedItem && (
-          <div className="w-full h-full bg-green-400">
-            <P_itemDetails item={selectedItem} sameCategory={data} onRelatedItemClick={handleItemClick} />
+          <div className="w-full bg-white absolute top-0">
+            <P_itemDetails
+              item={selectedItem}
+              sameCategory={data}
+              onRelatedItemClick={handleItemClick}
+            />
           </div>
         )}
       </div>

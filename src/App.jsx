@@ -1,12 +1,29 @@
 import React from "react";
-import { P_item } from "./components/P_item";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import All from "./pages/All";
+import Category from "./pages/Category";
+import Technology from "./pages/Technology";
+import RootLayOut from "./layOut/RootLayOut";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<RootLayOut />}>
+        <Route index element={<All />}></Route>
+        <Route path="/category" element={<Category />}></Route>
+        <Route path="/technology" element={<Technology />}></Route>
+      </Route>
+    </>
+  )
+);
 
 const App = () => {
-  return (
-    <div className="container">
-      <P_item />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

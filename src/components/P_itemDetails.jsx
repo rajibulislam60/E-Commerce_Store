@@ -1,8 +1,8 @@
 import React from "react";
 
-const P_itemDetails = ({ item }) => {
+const P_itemDetails = ({ item, sameCategory }) => {
   return (
-    <div className="w-full">
+    <div className="w-full h-screen">
       <div className="flex gap-5 items-center justify-center">
         <img className="" src={item.img} alt={item.name} />
         <div className="p-2">

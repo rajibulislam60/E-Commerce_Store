@@ -9,7 +9,7 @@ export const P_item = () => {
     setSelectedItem(item);
   };
   return (
-    <div className="w-100% h-full relative">
+    <div className="w-100% h-full relative mt-[50px]">
       <div className="mt-8 flex flex-wrap gap-4">
         {data.map((item) => (
           <div

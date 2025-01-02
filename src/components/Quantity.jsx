@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Quantity = () => {
+const Quantity = ({ onQuantityChange }) => {
   let [count, setCount] = useState(1);
+
+  useEffect(() => {
+    if (onQuantityChange) {
+      onQuantityChange(count);
+    }
+  }, [count, onQuantityChange]);
 
   let handleIncrease = () => {
     setCount((prevCount) => ++prevCount);

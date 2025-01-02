@@ -4,15 +4,27 @@ import AddCartArea from "./AddCartArea";
 
 const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
   let [showCart, setShowCart] = useState(false);
+  let [cartItem, setCartItem] = useState([]);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const relatedItems = sameCategory.filter(
     (relatedItem) =>
       relatedItem.category === item.category && relatedItem.id !== item.id
   );
 
+
   let handleAddToCart = () => {
+    setCartItem((prevItem) => [
+      ...prevItem,
+      {
+        ...item,
+        quantity: selectedQuantity,
+        totalPrice: selectedQuantity * item.price,
+      },
+    ]);
     setShowCart(true);
   };
+
   let handleColseCart = () => {
     setShowCart(false);
   };
@@ -25,7 +37,8 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
           <h2 className="text-lg font-bold">{item.name}</h2>
           <p>{item.details}</p>
           <h3 className="text-md text-gray-700">${item.price}</h3>
-          <Quantity />
+          <Quantity onQuantityChange={(quantity) => setSelectedQuantity(quantity)} />
+
           <h6
             className={`text-sm ${
               item.stock > 0 ? "text-green-600" : "text-red-600"
@@ -79,21 +92,34 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
       <div className="absolute top-0 right-0">
         {showCart && (
           <div>
-          <div className="w-[400px] bg-black text-white p-5">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-[24px] font-semibold">Your Products Cart</h2>
-              <button onClick={handleColseCart} className="border px-2">
-                X
-              </button>
+            <div className="w-[400px] bg-black text-white p-5">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-[24px] font-semibold">
+                  Your Products Cart
+                </h2>
+                <button onClick={handleColseCart} className="border px-2">
+                  X
+                </button>
+              </div>
+              <div className="flex justify-between text-[18px] font-semibold my-3">
+                <p>Item name</p>
+                <p>Quantity</p>
+                <p>Price</p>
+              </div>
+              <div className="w-full h-[2px] bg-white"></div>
+              <div>
+                {cartItem.map((addItem) => (
+                  <div className="text-white">
+                    <h3>{addItem.name}</h3>
+                    <p>{addItem.quantity}</p>
+                    <h4>
+                      ${(addItem.quantity * addItem.totalPrice).toFixed(2)}
+                    </h4>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="flex justify-between text-[18px] font-semibold my-3">
-              <p>Item name</p>
-              <p>Quantity</p>
-              <p>Price</p>
-            </div>
-            <div className="w-full h-[2px] bg-white"></div>
           </div>
-        </div>
         )}
       </div>
     </div>

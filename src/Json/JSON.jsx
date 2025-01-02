@@ -3,7 +3,7 @@ let data =  [
   {
     id: 1,
     name: "Laptop",
-    price: 1200,
+    price: 600,
     category: "Electronics",
     stock: 50,
     img:"../images/laptop.jpg"
@@ -11,7 +11,7 @@ let data =  [
   {
     id: 2,
     name: "PC",
-    price: 1200,
+    price: 550,
     details:"This is normal world classic pc.",
     category: "Accessories",
     stock: 50,
@@ -20,7 +20,7 @@ let data =  [
   {
     id: 3,
     name: "Gaming PC",
-    price: 1200,
+    price: 700,
     category: "Accessories",
     stock: 50,
     img:"../images/gpc.jpg"
@@ -28,7 +28,7 @@ let data =  [
   {
     id: 4,
     name: "Monitor",
-    price: 1200,
+    price: 200,
     category: "Accessories",
     stock: 50,
     img:"../images/monitor.jpg"
@@ -36,7 +36,7 @@ let data =  [
   {
     id: 5,
     name: "Mobile",
-    price: 1200,
+    price: 800,
     category: "Electronics",
     stock: 50,
     img:"../images/mobile.jpg"
@@ -44,7 +44,7 @@ let data =  [
   {
     id: 6,
     name: "Gaming Laptop",
-    price: 1200,
+    price: 850,
     category: "Electronics",
     stock: 50,
     img:"../images/glaptop.jpg"

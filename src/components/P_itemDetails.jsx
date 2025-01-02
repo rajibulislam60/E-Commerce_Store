@@ -12,7 +12,6 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
       relatedItem.category === item.category && relatedItem.id !== item.id
   );
 
-
   let handleAddToCart = () => {
     setCartItem((prevItem) => [
       ...prevItem,
@@ -25,19 +24,29 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
     setShowCart(true);
   };
 
+  let calculateTotalPrice = () => {
+    return cartItem
+      .reduce(
+        (total, addItem) => total + addItem.quantity * addItem.totalPrice,
+        0
+      )
+      .toFixed(2);
+  };
+
   let handleColseCart = () => {
     setShowCart(false);
   };
 
   return (
     <div className="w-full h-screen relative">
-      <div className="flex gap-5 items-center justify-center mt-5 mb-8">
+      <div className="flex gap-5 items-center justify-center mt-5 mb-3">
         <img className="w-[40%] h-[400px]" src={item.img} alt={item.name} />
         <div className="w-[60%] p-2">
           <h2 className="text-lg font-bold">{item.name}</h2>
-          <p>{item.details}</p>
           <h3 className="text-md text-gray-700">${item.price}</h3>
-          <Quantity onQuantityChange={(quantity) => setSelectedQuantity(quantity)} />
+          <Quantity
+            onQuantityChange={(quantity) => setSelectedQuantity(quantity)}
+          />
 
           <h6
             className={`text-sm ${
@@ -53,6 +62,9 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
             Add to Cart
           </button>
         </div>
+      </div>
+      <div className="mb-[70px]">
+      <p>{item.details}</p>
       </div>
       <div>
         {relatedItems.length > 0 && (
@@ -110,13 +122,20 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
               <div>
                 {cartItem.map((addItem) => (
                   <div className="text-white">
-                    <h3>{addItem.name}</h3>
-                    <p>{addItem.quantity}</p>
-                    <h4>
-                      ${(addItem.quantity * addItem.totalPrice).toFixed(2)}
-                    </h4>
+                    <div className="flex justify-between">
+                      <h3>{addItem.name}</h3>
+                      <p>{addItem.quantity}</p>
+                      <h4>
+                        ${(addItem.quantity * addItem.totalPrice).toFixed(2)}
+                      </h4>
+                    </div>
+                    <div className="w-full h-[1px] bg-white mt-4 mb-2"></div>
                   </div>
                 ))}
+              </div>
+              <div className="flex justify-between">
+                <p>Total Price: </p>
+                <p>${calculateTotalPrice()}</p>
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ export const P_item = () => {
         {data.map((item) => (
           <div
             key={item.id}
-            className="w-[280px] h-[350px] border border-black rounded-md"
+            className="w-[280px] h-[400px] border border-black rounded-md"
             onClick={() => handleItemClick(item)}
           >
             <img

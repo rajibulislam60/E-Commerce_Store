@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Quantity from "./Quantity";
 import AddCartArea from "./AddCartArea";
+import Footer from "./Footer";
 
 const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
   let [showCart, setShowCart] = useState(false);
@@ -38,12 +39,13 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
   };
 
   return (
-    <div className="w-full h-screen relative">
+    <div>
+      <div className="w-full bg-white relative">
       <div className="flex gap-5 items-center justify-center mt-5 mb-3">
         <img className="w-[40%] h-[400px]" src={item.img} alt={item.name} />
         <div className="w-[60%] p-2">
-          <h2 className="text-lg font-bold">{item.name}</h2>
-          <h3 className="text-md text-gray-700">${item.price}</h3>
+          <h2 className="text-[28px] font-bold">{item.name}</h2>
+          <h3 className="text-[26px] font-bold mt-3">${item.price}</h3>
           <Quantity
             onQuantityChange={(quantity) => setSelectedQuantity(quantity)}
           />
@@ -72,7 +74,7 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
             {relatedItems.map((relatedItem) => (
               <div
                 key={relatedItem.id}
-                className="w-[280px] h-[350px] border border-black rounded-md"
+                className="w-[280px] h-[400px] border border-black rounded-md"
                 onClick={() => onRelatedItemClick(relatedItem)}
               >
                 <img
@@ -141,6 +143,9 @@ const P_itemDetails = ({ item, sameCategory, onRelatedItemClick }) => {
           </div>
         )}
       </div>
+    </div>
+    
+    <Footer/>
     </div>
   );
 };

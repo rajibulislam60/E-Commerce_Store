@@ -1,8 +1,35 @@
-# React + Vite
+# E-Commerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the online e-commerce store. Working by React.js, Tailwind CSS and optionally a mock backend (JSON Server).
 
-Currently, two official plugins are available:
+# Features
+  1. Products
+  2. Cart
+  3. Products details in cart area
+  4. Add Cart
+  5. Quantity & Total Price
+  6. Checkout
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Tech Stack
+  1. React.js,
+  2. TailWind CSS,
+  3. JavaScript,
+  4. JSON Server
+
+# Focus
+ * Building reusable components.
+ * State management.
+ * React Router dom (DOM manipulation).
+ * Router & Routes.
+ * React icons
+ * npm
+ * React Slick slider for banner Slider.
+ * etc....
+
+There have the video of this project...........
+
+
+
+
+https://github.com/user-attachments/assets/85fe80e5-6499-43f5-b86a-4c52a4014db1
+
